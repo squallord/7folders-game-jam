@@ -1,0 +1,156 @@
+[gd_scene load_steps=23 format=3 uid="uid://c85c7hvrjur5i"]
+
+[ext_resource type="Script" path="res://assets/blood_hp/blood_hp.gd" id="1_dectc"]
+[ext_resource type="Shader" path="res://assets/blood_hp/blood_hp.gdshader" id="2_3o65h"]
+[ext_resource type="Texture2D" uid="uid://bq6smawyfsk25" path="res://assets/blood_hp/blood_hp.png" id="3_0trsu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xex4d"]
+shader = ExtResource("2_3o65h")
+shader_parameter/line_color = Color(0.372549, 0, 0, 1)
+shader_parameter/line_thickness = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xs1w"]
+atlas = ExtResource("3_0trsu")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgh61"]
+atlas = ExtResource("3_0trsu")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sfvwb"]
+atlas = ExtResource("3_0trsu")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axqil"]
+atlas = ExtResource("3_0trsu")
+region = Rect2(0, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iyvp7"]
+atlas = ExtResource("3_0trsu")
+region = Rect2(100, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3w4m"]
+atlas = ExtResource("3_0trsu")
+region = Rect2(200, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4p8kb"]
+atlas = ExtResource("3_0trsu")
+region = Rect2(300, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_033kh"]
+atlas = ExtResource("3_0trsu")
+region = Rect2(400, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0m6t"]
+atlas = ExtResource("3_0trsu")
+region = Rect2(500, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lc8b6"]
+atlas = ExtResource("3_0trsu")
+region = Rect2(0, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eld07"]
+atlas = ExtResource("3_0trsu")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vo0l7"]
+atlas = ExtResource("3_0trsu")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpb8a"]
+atlas = ExtResource("3_0trsu")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ia8ic"]
+atlas = ExtResource("3_0trsu")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pqfon"]
+atlas = ExtResource("3_0trsu")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wlw3"]
+atlas = ExtResource("3_0trsu")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_404dy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xs1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pgh61")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sfvwb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axqil")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iyvp7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3w4m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4p8kb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_033kh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0m6t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lc8b6")
+}],
+"loop": true,
+"name": &"DeadBlood",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eld07")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vo0l7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jpb8a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ia8ic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pqfon")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wlw3")
+}],
+"loop": true,
+"name": &"LiveBlood",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_028c7"]
+radius = 5.0
+
+[node name="BloodHp" type="Node2D"]
+position = Vector2(1, 3)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_dectc")
+
+[node name="Animation" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_xex4d")
+sprite_frames = SubResource("SpriteFrames_404dy")
+animation = &"LiveBlood"
+frame = 2
+frame_progress = 0.675758
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2, -5)
+shape = SubResource("CircleShape2D_028c7")
